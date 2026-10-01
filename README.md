@@ -18,7 +18,7 @@ An endless, auto-scrolling card carousel for SwiftUI and UIKit.
 
 - Loops forever in both directions and snaps one card per swipe
 - Side cards shrink slightly; the centered card stands out
-- Optional auto-scroll and a parallax effect for images
+- Optional auto-scroll, plus horizontal and vertical parallax for images
 - Tells you which card is showing, for page dots or analytics
 
 **Made with Swift 6**, with full data-race safety checks turned on. **Requires** iOS 17+ (or macOS 14+) and Xcode 16+.
@@ -121,11 +121,11 @@ EndlessCarousel(places) { place in
 
 ### Parallax
 
-Add `.scrollParallax()` to an image so it drifts inside its card while scrolling. Notice how the photo moves more slowly than the card as it's dragged:
+Add `.scrollParallax()` to an image so it drifts inside its card while scrolling, as if the card were a window onto the photo.
 
-<p align="center">
-  <img src="Docs/parallax.gif" width="260" alt="Dragging a card: the photo drifts inside the card's frame">
-</p>
+| Horizontal: swiping the carousel | Vertical: scrolling the page |
+|:---:|:---:|
+| <img src="Docs/parallax.gif" width="240" alt="Dragging a card: the photo drifts sideways inside the card"> | <img src="Docs/vertical-parallax.gif" width="240" alt="Scrolling a feed of carousels: photos drift up and down inside their cards"> |
 
 The card must clip the image:
 
@@ -141,6 +141,14 @@ EndlessCarousel(places) { place in
         .clipShape(RoundedRectangle(cornerRadius: 24))
 }
 ```
+
+By default the photo only moves while the carousel is swiped. When carousels are stacked in a vertical `ScrollView`, add `.vertical` so photos also drift as the page scrolls:
+
+```swift
+.scrollParallax(amount: 30, axes: [.horizontal, .vertical])
+```
+
+Use `axes: .vertical` on its own for images in an ordinary vertical scroll view, such as a header photo.
 
 ---
 
@@ -238,6 +246,8 @@ EndlessCarouselView(
     UIImage(named: trip.imageName)
 }
 ```
+
+UIKit cards use horizontal parallax. Vertical parallax needs a SwiftUI `ScrollView` around the carousel, so it doesn't react to a `UIScrollView` or `UITableView`.
 
 ### Knowing which card is showing
 

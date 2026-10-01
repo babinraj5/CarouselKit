@@ -22,7 +22,7 @@ final class DemoListViewController: UITableViewController {
 
         var demos: [Demo] {
             switch self {
-            case .swiftUI: [.swiftUIPhotoCards, .swiftUILiveConfiguration, .swiftUIFeed]
+            case .swiftUI: [.swiftUIPhotoCards, .swiftUILiveConfiguration, .swiftUIFeed, .swiftUIVerticalParallax]
             case .uiKit: [.imageCards, .customViews, .swiftUICardsInUIKit, .playground, .tableCells]
             }
         }
@@ -32,6 +32,7 @@ final class DemoListViewController: UITableViewController {
         case swiftUIPhotoCards
         case swiftUILiveConfiguration
         case swiftUIFeed
+        case swiftUIVerticalParallax
         case imageCards
         case customViews
         case swiftUICardsInUIKit
@@ -43,6 +44,7 @@ final class DemoListViewController: UITableViewController {
             case .swiftUIPhotoCards: "Photo Cards"
             case .swiftUILiveConfiguration: "Live Configuration"
             case .swiftUIFeed: "Carousel Feed"
+            case .swiftUIVerticalParallax: "Vertical Parallax"
             case .imageCards: "Image Cards"
             case .customViews: "Custom UIView Cards"
             case .swiftUICardsInUIKit: "SwiftUI Cards in UIKit"
@@ -56,6 +58,7 @@ final class DemoListViewController: UITableViewController {
             case .swiftUIPhotoCards: "The basic EndlessCarousel with a SwiftUI card and parallax"
             case .swiftUILiveConfiguration: "Controls bound directly to a CarouselConfiguration in @State"
             case .swiftUIFeed: "Several carousels in a vertical feed using configuration presets"
+            case .swiftUIVerticalParallax: "Photos drift up and down as the page scrolls, and sideways as rows swipe"
             case .imageCards: "UIImage background with a UIKit overlay and parallax"
             case .customViews: "Your own UIView subclasses for the card layers, with a custom card style"
             case .swiftUICardsInUIKit: "SwiftUI card views hosted in a UIKit screen"
@@ -69,6 +72,7 @@ final class DemoListViewController: UITableViewController {
             case .swiftUIPhotoCards: "rectangle.portrait.on.rectangle.portrait"
             case .swiftUILiveConfiguration: "dial.medium"
             case .swiftUIFeed: "rectangle.grid.1x2"
+            case .swiftUIVerticalParallax: "arrow.up.and.down.and.arrow.left.and.right"
             case .imageCards: "photo.on.rectangle"
             case .customViews: "square.stack.3d.up"
             case .swiftUICardsInUIKit: "swift"
@@ -83,6 +87,7 @@ final class DemoListViewController: UITableViewController {
             case .swiftUIPhotoCards: Self.hosting { PhotoCardsDemo(onSelect: $0) }
             case .swiftUILiveConfiguration: Self.hosting { LiveConfigurationDemo(onSelect: $0) }
             case .swiftUIFeed: Self.hosting { CarouselFeedDemo(onSelect: $0) }
+            case .swiftUIVerticalParallax: Self.hosting { VerticalParallaxDemo(onSelect: $0) }
             case .imageCards: ImageCardsViewController()
             case .customViews: CustomViewCardsViewController()
             case .swiftUICardsInUIKit: SwiftUICardsViewController()

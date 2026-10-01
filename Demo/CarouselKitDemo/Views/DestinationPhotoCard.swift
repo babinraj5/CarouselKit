@@ -11,6 +11,7 @@ struct DestinationPhotoCard: View {
     let destination: Destination
     var size: Size = .regular
     var parallaxAmount: CGFloat = 40
+    var parallaxAxes: Axis.Set = .horizontal
 
     private var borderWidth: CGFloat { size == .regular ? 5 : 3 }
     private var cornerRadius: CGFloat { size == .regular ? 30 : 22 }
@@ -19,7 +20,7 @@ struct DestinationPhotoCard: View {
         Color.clear
             .overlay {
                 photoLayers
-                    .scrollParallax(amount: parallaxAmount)
+                    .scrollParallax(amount: parallaxAmount, axes: parallaxAxes)
             }
             .overlay {
                 LinearGradient(colors: [.clear, .black.opacity(0.45)], startPoint: .center, endPoint: .bottom)

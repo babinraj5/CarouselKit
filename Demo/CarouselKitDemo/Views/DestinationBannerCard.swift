@@ -4,6 +4,7 @@ import SwiftUI
 /// A landscape banner card written in SwiftUI, used to show SwiftUI cards inside a UIKit screen.
 struct DestinationBannerCard: View {
     let destination: Destination
+    var parallaxAxes: Axis.Set = .horizontal
 
     private let shape = RoundedRectangle(cornerRadius: 22, style: .continuous)
 
@@ -13,7 +14,7 @@ struct DestinationBannerCard: View {
                 Image(destination.imageResource)
                     .resizable()
                     .scaledToFill()
-                    .scrollParallax(amount: 30)
+                    .scrollParallax(amount: 30, axes: parallaxAxes)
             }
             .overlay(alignment: .bottomLeading) {
                 VStack(alignment: .leading, spacing: 2) {
