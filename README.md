@@ -121,7 +121,13 @@ EndlessCarousel(places) { place in
 
 ### Parallax
 
-Add `.scrollParallax()` to an image so it drifts inside its card while scrolling. The card must clip the image:
+Add `.scrollParallax()` to an image so it drifts inside its card while scrolling. Notice how the photo moves more slowly than the card as it's dragged:
+
+<p align="center">
+  <img src="Docs/parallax.gif" width="260" alt="Dragging a card: the photo drifts inside the card's frame">
+</p>
+
+The card must clip the image:
 
 ```swift
 EndlessCarousel(places) { place in
