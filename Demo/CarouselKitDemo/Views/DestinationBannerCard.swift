@@ -14,7 +14,7 @@ struct DestinationBannerCard: View {
                 Image(destination.imageResource)
                     .resizable()
                     .scaledToFill()
-                    .scrollParallax(amount: 30, axes: parallaxAxes)
+                    .scrollParallax(amount: 60, axes: parallaxAxes)
             }
             .overlay(alignment: .bottomLeading) {
                 VStack(alignment: .leading, spacing: 2) {
