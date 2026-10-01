@@ -16,12 +16,51 @@ An endless, auto-scrolling card carousel for SwiftUI and UIKit.
 
 ## Installation
 
-In Xcode, choose **File → Add Package Dependencies…**, then either:
+CarouselKit is installed with Swift Package Manager.
 
-- click **Add Local…** and select the `CarouselKit` folder, or
-- paste the package's git URL.
+### In an Xcode app
 
-Then add `import CarouselKit` where you use it.
+1. In Xcode, choose **File → Add Package Dependencies…**
+2. Paste this URL into the search field at the top right:
+
+   ```
+   https://github.com/babinraj5/CarouselKit.git
+   ```
+
+3. Set **Dependency Rule** to **Up to Next Major Version** from `1.0.0`, then click **Add Package**.
+4. In the next dialog, check that **CarouselKit** is added to your app target and click **Add Package**.
+5. Import it in any file that uses the carousel:
+
+   ```swift
+   import CarouselKit
+   ```
+
+### In another Swift package
+
+Add CarouselKit to your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/babinraj5/CarouselKit.git", from: "1.0.0")
+],
+targets: [
+    .target(name: "YourTarget", dependencies: ["CarouselKit"])
+]
+```
+
+### Updating
+
+To get the latest version, choose **File → Packages → Update to Latest Package Versions** in Xcode. With the rule above you get fixes and new features (`1.x`), but never a breaking `2.0` without choosing it yourself.
+
+### Working on CarouselKit itself
+
+Clone the repo and open `Package.swift` in Xcode to edit the package, or open `Demo/CarouselKitDemo.xcodeproj` to try your changes in the demo app:
+
+```bash
+git clone https://github.com/babinraj5/CarouselKit.git
+```
+
+To test unreleased changes in your own app, use **File → Add Package Dependencies… → Add Local…** and pick the cloned folder instead of the URL.
 
 ---
 
