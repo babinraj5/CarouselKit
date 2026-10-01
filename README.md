@@ -11,10 +11,10 @@
 
 An endless, auto-scrolling card carousel for SwiftUI and UIKit.
 
-| SwiftUI photo cards | Feed with presets | UIKit custom views |
-|:---:|:---:|:---:|
-| <img src="Docs/photo-cards.gif" width="240" alt="Portrait photo cards auto-scrolling with page dots"> | <img src="Docs/feed.gif" width="240" alt="A feed of banner, gallery and mood carousels"> | <img src="Docs/custom-views.gif" width="240" alt="UIKit cards with tinted photos and badges"> |
-| Parallax, page dots via `.onPageChange` | Three carousels, three configurations | `EndlessCarouselView` with your own `UIView`s |
+| SwiftUI photo cards | Parallax while dragging | Feed with presets | UIKit custom views |
+|:---:|:---:|:---:|:---:|
+| <img src="Docs/photo-cards.gif" width="200" alt="Portrait photo cards auto-scrolling with page dots"> | <img src="Docs/parallax.gif" width="200" alt="Dragging a card: the photo drifts inside the card's frame"> | <img src="Docs/feed.gif" width="200" alt="A feed of banner, gallery and mood carousels"> | <img src="Docs/custom-views.gif" width="200" alt="UIKit cards with tinted photos and badges"> |
+| Auto-scroll, page dots via `.onPageChange` | The photo drifts inside its card | Three carousels, three configurations | `EndlessCarouselView` with your own `UIView`s |
 
 - Loops forever in both directions and snaps one card per swipe
 - Side cards shrink slightly; the centered card stands out
