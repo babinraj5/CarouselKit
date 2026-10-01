@@ -56,7 +56,7 @@ public struct EndlessCarousel<Item: Identifiable, Content: View>: View {
         let cardSize = configuration.cardSize(forContainerWidth: containerWidth)
 
         ZStack {
-            if containerWidth > 0, !items.isEmpty {
+            if containerWidth > 0, !items.isEmpty, position != nil {
                 carousel(cardSize: cardSize)
             }
         }
@@ -66,6 +66,11 @@ public struct EndlessCarousel<Item: Identifiable, Content: View>: View {
         // Restarts whenever the page changes or a swipe begins/ends, so the user never fights the timer.
         .task(id: AutoScrollState(position: position, isUserScrolling: isUserScrolling)) {
             await autoAdvance()
+        }
+        // Choosing the start card before the scroll view exists lets it center that card in its
+        // first layout; setting it after the scroll view appears can land off-center.
+        .onChange(of: items.isEmpty, initial: true) {
+            if position == nil, !items.isEmpty { position = startIndex }
         }
         .onChange(of: position, initial: true) { _, newPosition in
             reportPageChange(for: newPosition)
@@ -108,9 +113,6 @@ public struct EndlessCarousel<Item: Identifiable, Content: View>: View {
         .scrollPosition(id: $position, anchor: .center)
         .scrollClipDisabled()
         .modifier(UserScrollTracker(isUserScrolling: $isUserScrolling))
-        .onAppear {
-            if position == nil { position = startIndex }
-        }
     }
 
     private func autoAdvance() async {

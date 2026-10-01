@@ -1,9 +1,20 @@
 # CarouselKit
 
-![Made with Swift 6](https://img.shields.io/badge/Made%20with-Swift%206-F05138?logo=swift&logoColor=white)
-![iOS 17+](https://img.shields.io/badge/iOS-17%2B-blue)
+[![Made with Swift 6](https://img.shields.io/badge/Made%20with-Swift%206-F05138?logo=swift&logoColor=white)](https://www.swift.org)
+[![Version](https://img.shields.io/github/v/tag/babinraj5/CarouselKit?label=version&color=brightgreen)](https://github.com/babinraj5/CarouselKit/tags)
+[![iOS 17+](https://img.shields.io/badge/iOS-17%2B-007AFF?logo=apple&logoColor=white)](#installation)
+[![macOS 14+](https://img.shields.io/badge/macOS-14%2B-007AFF?logo=apple&logoColor=white)](#installation)
+[![SwiftUI | UIKit](https://img.shields.io/badge/SwiftUI%20%7C%20UIKit-supported-8A2BE2)](#swiftui)
+[![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-F05138)](#installation)
+[![Data-race safe](https://img.shields.io/badge/concurrency-data--race%20safe-success)](https://www.swift.org/migration/documentation/swift-6-concurrency-migration-guide/)
+[![No dependencies](https://img.shields.io/badge/dependencies-none-lightgrey)](Package.swift)
 
 An endless, auto-scrolling card carousel for SwiftUI and UIKit.
+
+| SwiftUI photo cards | Feed with presets | UIKit custom views |
+|:---:|:---:|:---:|
+| <img src="Docs/photo-cards.gif" width="240" alt="Portrait photo cards auto-scrolling with page dots"> | <img src="Docs/feed.gif" width="240" alt="A feed of banner, gallery and mood carousels"> | <img src="Docs/custom-views.gif" width="240" alt="UIKit cards with tinted photos and badges"> |
+| Parallax, page dots via `.onPageChange` | Three carousels, three configurations | `EndlessCarouselView` with your own `UIView`s |
 
 - Loops forever in both directions and snaps one card per swipe
 - Side cards shrink slightly; the centered card stands out
